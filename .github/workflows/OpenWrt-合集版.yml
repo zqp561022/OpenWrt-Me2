@@ -91,6 +91,13 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
+    - name: SSH链接管理
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
     - name: 下载固件dL库
       id: package
       run: |
@@ -149,8 +156,8 @@ jobs:
       run: |
         echo "release_tag=${{ env.TAG_TIME }}" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "OpenWrt-Mini_ X86_64-合集版（支持ipv6）" >> release.txt
-        echo "默认地址：192.168.2.100" >> release.txt
+        echo "OpenWrt-Mini_ X86_64-5.15（支持ipv6）" >> release.txt
+        echo "默认地址：192.168.0.11" >> release.txt
         echo "默认密码：无密码" >> release.txt
         echo "包含插件：ShadowSocksR Plus+，PassWall，OpenClash" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
@@ -169,8 +176,8 @@ jobs:
     - name: 清理编译流程
       uses: Mattraks/delete-workflow-runs@main
       with:
-        retain_days: 1
-        keep_minimum_runs: 3
+        retain_days: 180
+        keep_minimum_runs: 10
 
     - name: 删除旧版固件
       uses: dev-drprasad/delete-older-releases@master
