@@ -165,7 +165,7 @@ jobs:
         echo "OpenWrt-Mini_ X86_64-5.15（支持ipv6）" >> release.txt
         echo "默认地址：192.168.0.11" >> release.txt
         echo "默认密码：无密码" >> release.txt
-        echo "包含插件：ShadowSocksR Plus+，PassWall，OpenClash" >> release.txt
+        echo "包含插件：ShadowSocksR Plus+，PassWall，OpenClash，Mosdns，Smartdns，AdGuardHome" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 发布新版固件
@@ -174,7 +174,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        name: ${{ env.FILE_TIME }} -合集版
+        name: ${{ env.FILE_TIME }} -Me2
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/* 
