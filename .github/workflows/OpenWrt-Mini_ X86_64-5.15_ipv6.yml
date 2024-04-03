@@ -1,4 +1,4 @@
-name:  OpenWrt-合集版
+name:  OpenWrt-Mini_ X86_64-5.15_ipv6
 
 on: 
   workflow_dispatch:
