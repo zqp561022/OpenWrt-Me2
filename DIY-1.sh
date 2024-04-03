@@ -22,3 +22,13 @@ echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-pa
 #6-添加自用软件包
 git clone https://github.com/firker/diy-ziyong.git package/diy-ziyong
 git clone https://github.com/jerrykuku/lua-maxminddb.git  package/lua-maxminddb
+
+#7-添加mosdns插件
+# git clone https://github.com/sbwml/luci-app-mosdns.git package/luci-app-mosdns
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+
+#8-添加smartdns插件
+git clone https://github.com/pymumu/openwrt-smartdns.git package/openwrt-smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
