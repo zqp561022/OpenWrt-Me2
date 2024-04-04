@@ -19,4 +19,4 @@
 
 ## 固件截图
 
-![avatar](https://github.com/zqp561022/OpenWrt-Me2/blob/main/jpg/OpenWrt-2.jpg)
+![avatar](https://github.com/zqp561022/OpenWrt-Me2/blob/main/jpg/OpenWrt-2.png)
